@@ -6,7 +6,7 @@
 /*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 20:33:24 by btorp             #+#    #+#             */
-/*   Updated: 2019/04/08 18:20:09 by btorp            ###   ########.fr       */
+/*   Updated: 2019/04/09 20:53:30 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define FDF_H
 # define SIGN -1
 # define ISO_ANGLE 0.46373398
+# define ISO_ANGLE_TRUE 0.523599 
 # define SPEED 1.5
 # define DISTANCE 15
 # define DEFAULT_COLOR 0xF32CEF
 # define WINDOW_HEIGHT  1600
 # define WINDOW_WIDTH  1600
-# define PLUS_ANGLE 0.2
+# define PLUS_ANGLE 0.25
 # define START_K  5
 # include "mlx.h"
 # include "../libft/libft.h"
@@ -73,16 +74,31 @@ typedef struct s_line
 
 typedef	struct s_move
 {
-	double	x;
-	double	y;
-	float	k;
+	double		x;
+	double		y;
+	float		k;
 }				t_move;
 
 typedef	struct s_mlx
 {
-	void *i;
-	void *w;
+	void		*i;
+	void		*w;
 }				t_mlx;
+
+typedef	struct s_gradient
+{
+	double	startx;
+	double	endx;
+	double	starty;
+	double	endy;
+	double	dy;
+	double	dx;
+	double	cur_x;
+	double	cur_y;
+	int		color_1;
+	int		color_2;
+	int		color_cur;
+}				t_gradient;
 
 typedef	struct s_draw
 {
@@ -128,10 +144,11 @@ void		x_os(t_map_r *map, double angle, t_map a);
 int			ft_atoi16(char *str);
 void		z_os(t_map_r *map, double angle, t_map a);
 void		y_os(t_map_r *map, double angle, t_map a);
-void	iso(t_map_r *map, t_map a);
-void	goiso(double *x, double *y, int z, double angle);
-void	change_color(t_map_r *map, t_map a);
-void	minus_z(t_map_r *map, t_map a);
-void	plus_z(t_map_r *map, t_map a);
-
+void		iso(t_map_r *map, t_map a);
+void		goiso(double *x, double *y, int z, double angle);
+void		change_color(t_map_r *map, t_map a);
+int 		get_color(t_gradient *t);	
+int			ft_max (int a, int b);
+void		fill_color(void *init, void *w, int i);
+void		go_black(t_map_r *map, t_map a);
 #endif

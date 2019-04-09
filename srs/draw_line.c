@@ -6,28 +6,11 @@
 /*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 20:32:57 by btorp             #+#    #+#             */
-/*   Updated: 2019/04/08 17:25:54 by btorp            ###   ########.fr       */
+/*   Updated: 2019/04/09 20:46:00 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-typedef	struct	s_brezen
-{
-	int		signA;
-	int		singB;
-	double	a;
-	double	deltaerror;
-	int		y;
-	int		diry;
-}				t_brezen;
-
-int ft_max (int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
 
 void	make_t_draw(t_line t, t_draw *d)
 {
@@ -44,30 +27,49 @@ void	make_t_draw(t_line t, t_draw *d)
 	d->y = t.y0;
 }
 
-void line_dda(t_line line, void *init, void *window)
+t_gradient	make_gradient(t_gradient *t, t_line l)
 {
-	t_draw	d;
-	int		color;
+	t->dy = (double)abs((int)(l.x0 - l.x1));
+	t->dy = (double)abs((int)(l.y0 - l.y1));
+	t->startx = l.x0;
+	t->starty = l.y0;
+	t->endx = l.x1;
+	t->cur_x = l.x0;
+	t->cur_y = l.y0;
+	t->color_1 = l.start;
+	t->color_2 = l.end;
+	t->color_cur = l.start;
+	t->endy = l.y1;
+	return (*t);
 
-	color = line.start;
+}
+
+void	line_dda(t_line line, void *init, void *window)
+{
+	t_draw		d;
+	int			color;
+	t_gradient	g;
+
+	
 	make_t_draw(line, &d);
+	g = make_gradient(&g, line);
 	if (d.length == 0)
 	{
 		mlx_pixel_put(init, window, d.iX1, d.iY1, line.start);
-		return;
+		return ;
 	}
-	d.length++;
 	while (d.length--)
 	{
 		d.x += d.dX;
 		d.y += d.dY;
-		// if (d.x < 0 || d.y < 0)
-		// 	continue ;
-		mlx_pixel_put(init, window,  round(d.x), round(d.y), line.start);
+		mlx_pixel_put(init, window, round(d.x), round(d.y), get_color(&g));
+		g.color_cur = get_color(&g);
+		g.cur_x += d.dX;
+		g.cur_y += d.dY;
 	}
 }
 
-void draw_line(t_line *line, void *init, void *window)
+void	draw_line(t_line *line, void *init, void *window)
 {
 	line_dda(*line, init, window);
 	return ;

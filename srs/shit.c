@@ -6,7 +6,7 @@
 /*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:42:35 by btorp             #+#    #+#             */
-/*   Updated: 2019/04/08 18:33:26 by btorp            ###   ########.fr       */
+/*   Updated: 2019/04/09 20:51:21 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	x_os(t_map_r *map, double angle, t_map a)
 		j = 0;
 		while (j < map->size_h)
 		{
-			r[i][j].y = (g[i][j].y * cos(temp) + g[i][j].z * sin(temp)) + 5;
+			// r[i][j].y = g[i][j].y;
+			// r[i][j].x = g[i][j].x;
+			// r[i][j].z = g[i][j].z;
+			r[i][j].y = (g[i][j].y * cos(temp) + g[i][j].z * sin(temp));
 			r[i][j].z = -g[i][j].y * sin(temp) + g[i][j].z * cos(temp);
 			j++;
 		}
@@ -56,6 +59,9 @@ void	y_os(t_map_r *map, double angle, t_map a)
 		j = 0;
 		while (j < map->size_h)
 		{
+			// r[i][j].y = g[i][j].y;
+			// r[i][j].x = g[i][j].x;
+			// r[i][j].z = g[i][j].z;
 			r[i][j].x = g[i][j].x * cos(temp) + g[i][j].z * sin(temp);
 			r[i][j].z = -g[i][j].x * sin(temp) + g[i][j].z * cos(temp);
 			j++;
@@ -85,8 +91,8 @@ void	z_os(t_map_r *map, double angle, t_map a)
 			r[i][j].x = g[i][j].x * cos(temp) - g[i][j].y * sin(temp);
 			r[i][j].y = -g[i][j].x * sin(temp) + g[i][j].y * cos(temp);
 			//r[i][j].y = g[i][j].y * cos(temp) + g[i][j].z * sin(temp);
-			r[i][j].z = -g[i][j].y * sin(temp) + g[i][j].z * cos(temp);
-			r[i][j].x = g[i][j].x * cos(temp) + g[i][j].z * sin(temp) * 5;
+			//r[i][j].z = -g[i][j].y * sin(temp) + g[i][j].z * cos(temp);
+			r[i][j].x = g[i][j].x * cos(temp) + g[i][j].z * sin(temp);
 			// r[i][j].z = -g[i][j].x * sin(temp) + g[i][j].z * cos(temp);
 			j++;
 		}
@@ -116,7 +122,6 @@ void	iso(t_map_r *map, t_map a)
 		{
 			r[i][j].x = (double)g[i][j].x;
 			r[i][j].y = (double)g[i][j].y;
-			
 			goiso(&r[i][j].x, &r[i][j].y, g[i][j].z, ISO_ANGLE);
 			j++;
 		}

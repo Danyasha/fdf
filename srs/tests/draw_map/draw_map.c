@@ -5,16 +5,6 @@ static	int		exiter(char *s)
 	return (0);
 }
 
-void	fill(void *init, void *w, int c)
-{
-	for(int i = 0; i<= WINDOW_HEIGHT; i++)
-	{
-		for (int j = 0; j<= WINDOW_WIDTH; j++)
-		{
-			mlx_pixel_put(init, w, i, j, c);
-		}
-	}
-}
 int	key_press(int key, void *p)
 {
 	t_mlx *t;
@@ -44,7 +34,12 @@ int	key_press(int key, void *p)
 		iso(map2, *map);
 	if (key == 8)
 		change_color(map2, *map);
-	mlx_clear_window(t->i, t->w);	
+	mlx_clear_window(t->i, t->w);
+	if (key == 3)
+	{
+		go_black(map2, *map);
+		fill_color(t->i, t->w, 1);
+	}
 	if (key == 126)
 		kek->y -= DISTANCE;
 	if (key == 125)
@@ -57,10 +52,7 @@ int	key_press(int key, void *p)
 		kek->k += SPEED;
 	if (key == 27 && kek->k > 1)
 		kek->k -= SPEED;
-	if (key == 30)
-		plus_z(map2, *map);
-	if (key == 33)
-		minus_z(map2, *map);
+	//fill_color(t->i, t->w, 0);
 	displayer(*t, map2, *kek);
 	return 0;
 }
@@ -87,14 +79,10 @@ int		main(int argn, char **argv)
 	k = 15;
 	t_map_r *map2;
 	map2 = make_map_r(map, ISO_ANGLE);
-	z_os(map2, PLUS_ANGLE, *map);
-	x_os(map2, PLUS_ANGLE, *map);
-	y_os(map2, PLUS_ANGLE, *map);
 	t_move kek;
 	kek.x = 500;
 	kek.y = 200;
-	kek.k = START_K;
-	//fill(t.i, t.w, 0xADAAFF);
+	kek.k = 15;
 	displayer(t, map2, kek);
 	void *a[4];
 

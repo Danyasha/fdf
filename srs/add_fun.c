@@ -6,11 +6,18 @@
 /*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 10:45:40 by btorp             #+#    #+#             */
-/*   Updated: 2019/04/08 17:35:16 by btorp            ###   ########.fr       */
+/*   Updated: 2019/04/09 17:31:03 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int		ft_max (int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
 
 static	int	get_number(char c)
 {
@@ -33,7 +40,6 @@ int		ft_atoi16(char *str)
 	int		l;
 	int		i;
 
-	return DEFAULT_COLOR;
 	i = 1;
 	len = ft_strlen(str);
 	l = 0;
@@ -45,5 +51,6 @@ int		ft_atoi16(char *str)
 		i = i * 16;
 		len--;
 	}
+	printf("%i\n", l);
 	return (l);
 }
