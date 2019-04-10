@@ -60,7 +60,7 @@ t_map_r		*clone_map(t_map *map)
 	return (rotated_map);
 }
 
-t_map_r		*make_map_r(t_map *map, double angle)
+t_map_r		*make_map_r(t_map *map, double angle, int fd)
 {
 	t_map_r		*rotated_map;
 	t_point_r	**p;
@@ -80,5 +80,6 @@ t_map_r		*make_map_r(t_map *map, double angle)
 		}
 		i++;
 	}
+	close (fd);
 	return (rotated_map);
 }

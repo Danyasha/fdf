@@ -143,7 +143,7 @@ t_map		*exiter_validate(t_map	**map, char **str, char ***str2);
 int			ft_atoi16(char *str);
 void		tpoint_cpy(t_point **dst, t_point *srs, int n);
 void		rotate_point(t_point_r *t, double angle);
-t_map_r		*make_map_r(t_map *map, double angle);
+t_map_r		*make_map_r(t_map *map, double angle, int fd);
 void		displayer(t_mlx t, t_map_r *map, t_move u);
 void		draw_line(t_line *line, void *init, void *window);
 void		x_os(t_map_r *map, double angle, t_map a);

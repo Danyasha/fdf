@@ -53,7 +53,7 @@ int						main(int argn, char **argv)
 		return (exiter("invalid file\n"), fd);
 	if (!(map = validate_main(fd)))
 		return (exiter("bad map\n", fd));
-	map2 = make_map_r(map, ISO_ANGLE);
+	map2 = make_map_r(map, ISO_ANGLE, int fd);
 	z = make_fuck_off_norme(z);
 	displayer(z.t, map2, z.kek);
 	if ((a[0] = &(z.t)) || !(a[0])
