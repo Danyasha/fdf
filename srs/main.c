@@ -46,7 +46,7 @@ int		main(int argn, char **argv)
 {
 	int					fd;
 	t_map				*map;
-	void				*s[4];
+	void				*a[4];
 	t_fuck_off_norme	z;
 	t_map_r				*map2;
 
@@ -63,9 +63,8 @@ int		main(int argn, char **argv)
 	map2 = make_map_r(map, ISO_ANGLE);
 	z = make_fuck_off_norme(z);
 	displayer(z.t, map2, z.kek);
-	void *a[4];
-	a[0] = &t;
-	a[1] = &kek;
+	a[0] = &(z.t);
+	a[1] = &(z.kek);
 	a[2] = map2;
 	a[3] = map;
 	mlx_hook(t.w, 2, 18, key_press, a);
