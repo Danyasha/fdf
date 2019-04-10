@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   validation_funsc.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 09:58:39 by marvin            #+#    #+#             */
-/*   Updated: 2019/04/10 09:58:39 by marvin           ###   ########.fr       */
+/*   Updated: 2019/04/10 15:26:27 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_map	*makemap()
+t_map	*makemap(void)
 {
 	t_map *map;
-	
+
 	map = (t_map*)malloc(sizeof(t_map));
 	map->size_h = -1;
 	map->size_v = 1;
@@ -23,7 +23,7 @@ t_map	*makemap()
 	return (map);
 }
 
-int		check_size_h(char	**splited, t_map *map)
+int		check_size_h(char **splited, t_map *map)
 {
 	int	len;
 

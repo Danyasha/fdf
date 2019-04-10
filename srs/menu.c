@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   menu.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 10:02:13 by marvin            #+#    #+#             */
-/*   Updated: 2019/04/10 10:02:13 by marvin           ###   ########.fr       */
+/*   Updated: 2019/04/10 15:30:01 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	int		is_move(int key)
 	return (0);
 }
 
-static	void		make_move(int k, t_move k)
+static	void	make_move(int key, t_move *kek)
 {
 	if (key == 126)
 		kek->y -= DISTANCE;
@@ -48,7 +48,7 @@ static	void		make_move(int k, t_move k)
 		kek->k -= SPEED;
 }
 
-static	void		xyrotate(t_map_r *map2, t_map *map, t_move *kek, int key)
+static	void	xyrotate(t_map_r *map2, t_map *map, int key)
 {
 	if (key == 18)
 		x_os(map2, PLUS_ANGLE, *map);
@@ -63,23 +63,26 @@ static	void		xyrotate(t_map_r *map2, t_map *map, t_move *kek, int key)
 	if (key == 1)
 		z_os(map2, -PLUS_ANGLE, *map);
 	if (key == 34)
-		iso(map2, *map)
+		iso(map2, *map);
 }
 
-void			key_press(int key, void *p)
+int				key_press(int key, void *p)
 {
 	t_mlx	*t;
 	void	**p2;
+	t_map_r	*map2;
+	t_move	*kek;
+	t_map	*map;
 
 	p2 = (void**)p;
+	map2 = p2[2];
+	kek = p2[1];
+	map = p2[3];
 	t = (t_mlx*)p2[0];
-	t_map_r *map2 = p2[2];
-	t_move *kek = p2[1];
-	t_map *map = p2[3];
 	if (key == 53)
 		exit(0);
 	if (isxyiso(key))
-		xyrotate(map2, map, kek, key);
+		xyrotate(map2, map, key);
 	else if (key == 8)
 		change_color(map2, *map);
 	mlx_clear_window(t->i, t->w);
@@ -88,4 +91,5 @@ void			key_press(int key, void *p)
 	if (is_move(key))
 		make_move(key, kek);
 	displayer(*t, map2, *kek);
+	return (1);
 }

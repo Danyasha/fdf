@@ -6,7 +6,7 @@
 /*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 22:10:10 by btorp             #+#    #+#             */
-/*   Updated: 2019/04/08 13:06:48 by btorp            ###   ########.fr       */
+/*   Updated: 2019/04/10 15:25:21 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ t_map_r		*make_map_r(t_map *map, double angle, int fd)
 		}
 		i++;
 	}
-	close (fd);
+	close(fd);
 	return (rotated_map);
 }

@@ -6,7 +6,7 @@
 /*   By: btorp <btorp@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 16:48:08 by btorp             #+#    #+#             */
-/*   Updated: 2019/04/09 20:30:47 by btorp            ###   ########.fr       */
+/*   Updated: 2019/04/10 15:47:19 by btorp            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,28 @@ static	int	get_c(int i)
 	return (0x58EEF3);
 }
 
-void	fill_color(void *init, void *w, int i)
+void		anal(void *init, void *w, int color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i <= WINDOW_HEIGHT)
+	{
+		j = 0;
+		while (j <= WINDOW_WIDTH)
+		{
+			mlx_pixel_put(init, w, i, j, color);
+			j++;
+		}
+		i++;
+	}
+}
+
+void		fill_color(void *init, void *w, int i)
 {
 	static	int	l;
 	int			color;
-
 
 	if (i)
 	{
@@ -52,18 +69,12 @@ void	fill_color(void *init, void *w, int i)
 	if (l == 2)
 		color = 0xB5CEAC;
 	color = 0xFAF7FA;
-	for(int i = 0; i<= WINDOW_HEIGHT; i++)
-	{
-		for (int j = 0; j<= WINDOW_WIDTH; j++)
-		{
-			mlx_pixel_put(init, w, i, j, color);
-		}
-	}
+	anal(init, w, color);
 	if (l == 3)
 		l = 0;
 }
 
-int		go_black(t_map_r *map, t_map a)
+int			go_black(t_map_r *map, t_map a)
 {
 	t_point_r	**r;
 	int			i;
@@ -91,10 +102,10 @@ int		go_black(t_map_r *map, t_map a)
 
 void		change_color(t_map_r *map, t_map a)
 {
+	static	int	k;
 	t_point_r	**r;
 	int			i;
 	int			j;
-	static	int	k;
 	t_point		**g;
 
 	g = a.points;
