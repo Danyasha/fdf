@@ -18,10 +18,11 @@
 # define SPEED 1.5
 # define DISTANCE 15
 # define DEFAULT_COLOR 0xF32CEF
-# define WINDOW_HEIGHT  1600
-# define WINDOW_WIDTH  1600
+# define WINDOW_HEIGHT 1600
+# define WINDOW_WIDTH 1600
 # define PLUS_ANGLE 0.25
-# define START_K  5
+# define START_K 5
+# define WINDOW_NAME FDF
 # include "mlx.h"
 # include "../libft/libft.h"
 # include <stdlib.h>
@@ -123,6 +124,11 @@ typedef	struct s_fuck_norme
 	float		k;
 }				t_fuck_norme;
 
+typedef struct s_fuck_off_norme
+{
+	t_mlx		t;
+	t_move		kek;
+}				t_fuck_off_norme;
 
 t_map		*validate_main(int fd);
 int			validate_point(char *str, t_point *point);
