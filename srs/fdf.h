@@ -161,4 +161,5 @@ t_map		*makemap();
 int			check_size_h(char	**splited, t_map *map);
 int			check_point(char *str);
 void		key_press(int key, void *p);
+
 #endif

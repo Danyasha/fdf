@@ -14,7 +14,7 @@
 
 static	int		check_line(char	**splited)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (splited[i])
@@ -36,7 +36,7 @@ static	void	fill_point(t_point *point, int z, int color, int x, int y)
 
 static	void	make_point(t_point	*point, char *str, int x, int y)
 {
-	char **splited;
+	char	**splited;
 
 	splited = ft_strsplit(str, ',');
 	if (splited)
@@ -48,8 +48,8 @@ static	void	make_point(t_point	*point, char *str, int x, int y)
 
 static	void	make_line(t_point ***points, char **splited, int v_size, int h_size)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	if (v_size == 1)
 		j = 0;
@@ -65,7 +65,7 @@ static	void	make_line(t_point ***points, char **splited, int v_size, int h_size)
 	}
 }
 
-t_map	*validate_main(int fd)
+t_map			*validate_main(int fd)
 {
 	t_map	*map;
 	char	*gnl_str;

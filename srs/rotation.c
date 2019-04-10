@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void goiso(double *x, double *y, int z, double angle)
+void	goiso(double *x, double *y, int z, double angle)
 {
 	double	previous_x;
 	double	previous_y;

@@ -14,7 +14,7 @@
 
 t_point_r	*clone_line(t_point *t, int h)
 {
-	int		i;
+	int			i;
 	t_point_r	*line;
 
 	line = (t_point_r*)malloc(sizeof(t_point_r) * h);
@@ -46,7 +46,7 @@ t_point_r	**clone_points(t_point **points, int h, int v)
 	return (cloned_points);
 }
 
-t_map_r	*clone_map(t_map *map)
+t_map_r		*clone_map(t_map *map)
 {
 	t_map_r	*rotated_map;
 
@@ -60,7 +60,7 @@ t_map_r	*clone_map(t_map *map)
 	return (rotated_map);
 }
 
-t_map_r	*make_map_r(t_map *map, double angle)
+t_map_r		*make_map_r(t_map *map, double angle)
 {
 	t_map_r		*rotated_map;
 	t_point_r	**p;

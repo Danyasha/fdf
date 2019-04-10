@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int		isxyiso(int key)
+static	int		isxyiso(int key)
 {
 	if (key == 18 || key == 19 || key == 12)
 		return (1);
@@ -23,7 +23,7 @@ int		isxyiso(int key)
 	return (0);
 }
 
-int		is_move(int key)
+static	int		is_move(int key)
 {
 	if (key == 126 || key == 125 || key == 123)
 		return (1);
@@ -32,7 +32,7 @@ int		is_move(int key)
 	return (0);
 }
 
-void			make_move(int k, t_move k)
+static	void		make_move(int k, t_move k)
 {
 	if (key == 126)
 		kek->y -= DISTANCE;
@@ -48,7 +48,7 @@ void			make_move(int k, t_move k)
 		kek->k -= SPEED;
 }
 
-static	void	xyrotate(t_map_r *map2, t_map *map, t_move *kek, int key)
+static	void		xyrotate(t_map_r *map2, t_map *map, t_move *kek, int key)
 {
 	if (key == 18)
 		x_os(map2, PLUS_ANGLE, *map);
@@ -66,10 +66,10 @@ static	void	xyrotate(t_map_r *map2, t_map *map, t_move *kek, int key)
 		iso(map2, *map)
 }
 
-void	key_press(int key, void *p)
+void			key_press(int key, void *p)
 {
-	t_mlx *t;
-	void 	**p2;
+	t_mlx	*t;
+	void	**p2;
 
 	p2 = (void**)p;
 	t = (t_mlx*)p2[0];
@@ -80,7 +80,7 @@ void	key_press(int key, void *p)
 		exit(0);
 	if (isxyiso(key))
 		xyrotate(map2, map, kek, key);
-	if (key == 8)
+	else if (key == 8)
 		change_color(map2, *map);
 	mlx_clear_window(t->i, t->w);
 	if (key == 3 && go_black(map2, *map))

@@ -23,8 +23,8 @@ t_point		get_delta(t_point start, t_point end)
 
 double		percent(int start, int end, int current)
 {
-	double placement;
-	double distance;
+	double	placement;
+	double	distance;
 
 	placement = current - start;
 	distance = end - start;

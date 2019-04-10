@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void	make_t_draw(t_line t, t_draw *d)
+void		make_t_draw(t_line t, t_draw *d)
 {
 	d->iX1 = round(t.x0);
 	d->iY1 = round(t.y0);
@@ -44,7 +44,7 @@ t_gradient	make_gradient(t_gradient *t, t_line l)
 
 }
 
-void	line_dda(t_line line, void *init, void *window)
+void		line_dda(t_line line, void *init, void *window)
 {
 	t_draw		d;
 	int			color;
@@ -69,7 +69,7 @@ void	line_dda(t_line line, void *init, void *window)
 	}
 }
 
-void	draw_line(t_line *line, void *init, void *window)
+void		draw_line(t_line *line, void *init, void *window)
 {
 	line_dda(*line, init, window);
 	return ;

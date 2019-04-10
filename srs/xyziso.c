@@ -30,9 +30,6 @@ void	x_os(t_map_r *map, double angle, t_map a)
 		j = 0;
 		while (j < map->size_h)
 		{
-			// r[i][j].y = g[i][j].y;
-			// r[i][j].x = g[i][j].x;
-			// r[i][j].z = g[i][j].z;
 			r[i][j].y = (g[i][j].y * cos(temp) + g[i][j].z * sin(temp));
 			r[i][j].z = -g[i][j].y * sin(temp) + g[i][j].z * cos(temp);
 			j++;
@@ -59,9 +56,6 @@ void	y_os(t_map_r *map, double angle, t_map a)
 		j = 0;
 		while (j < map->size_h)
 		{
-			// r[i][j].y = g[i][j].y;
-			// r[i][j].x = g[i][j].x;
-			// r[i][j].z = g[i][j].z;
 			r[i][j].x = g[i][j].x * cos(temp) + g[i][j].z * sin(temp);
 			r[i][j].z = -g[i][j].x * sin(temp) + g[i][j].z * cos(temp);
 			j++;

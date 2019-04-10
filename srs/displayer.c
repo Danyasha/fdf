@@ -14,8 +14,8 @@
 
 void	display_around(t_mlx t, t_map_r *map, int i, int j, t_move u)
 {
-	t_line	*line;
-	t_point_r **p;
+	t_line		*line;
+	t_point_r	**p;
 
 	line = (t_line*)malloc(sizeof(t_line));
 	p = map->points;
@@ -41,9 +41,9 @@ void	display_around(t_mlx t, t_map_r *map, int i, int j, t_move u)
 
 void	displayer(t_mlx t, t_map_r *map, t_move u)
 {
-	t_point_r **p;
-	int	i;
-	int	j;
+	t_point_r	**p;
+	int			i;
+	int			j;
 
 	i = 0;
 	p = map->points;
