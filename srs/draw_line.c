@@ -74,31 +74,3 @@ void	draw_line(t_line *line, void *init, void *window)
 	line_dda(*line, init, window);
 	return ;
 }
-	// int i, L, xstart, ystart, xend, yend;
-	// double dX, dY, x[1000], y[1000];
-// 	xstart = round(line->x0);
-// 	ystart = round(line->y0);
-// 	xend = round(line->x1);
-// 	yend = round(line->y1);
-// 	L = ft_max(abs(xend-xstart), abs(yend-ystart));
-// 	dX = (line->x1-line->x0) / L;
-// 	dY = (line->y1-line->y0) / L;
-// 	i = 0;
-// 	x[i] = line->x0;
-// 	y[i] = line->y0;
-// 	i++;
-// 	while (i < L)
-// 	{
-// 		x[i] = x[i-1] + dX;
-// 		y[i] = y[i-1] + dY;
-// 		i++;
-// 	}
-// 	x[i] = line->x1;
-// 	y[i] = line->y1;
-// 	i = 0;
-// 	while (i <= L)
-// 	{
-// 		mlx_pixel_put(init, window, round(x[i]), round(y[i]), DEFAULT_COLOR); /* Draws a point. */
-// 		i++;
-// 	}
-// }

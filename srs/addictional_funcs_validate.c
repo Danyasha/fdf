@@ -75,26 +75,26 @@ t_map	*exiter_validate(t_map	**map, char **str, char ***str2)
 	int		len;
 	char	**tempstr;
 
-	// tempstr = *str2;
-	// if (map == NULL)
-	// 	return (NULL);
-	// temp = *map;
-	// free(*str);
-	// if (str2)
-	// {
-	// 	len = array_len(tempstr);
-	// 	while(len != 0)
-	// 		free(tempstr[len--]);
-	// 	free(str2);
-	// }
-	// while (temp)
-	// {
-	// 	free(*temp);
-	// 	*temp = NULL;
-	// 	temp++;
-	// }
-	// free(*temp);
-	// free(*map);
-	// *map = NULL;
+	tempstr = *str2;
+	if (map == NULL)
+		return (NULL);
+	temp = *map;
+	free(*str);
+	if (str2)
+	{
+		len = array_len(tempstr);
+		while(len != 0)
+			free(tempstr[len--]);
+		free(str2);
+	}
+	while (temp)
+	{
+		free(*temp);
+		*temp = NULL;
+		temp++;
+	}
+	free(*temp);
+	free(*map);
+	*map = NULL;
 	return (NULL);
 }

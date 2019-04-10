@@ -151,4 +151,8 @@ int 		get_color(t_gradient *t);
 int			ft_max (int a, int b);
 void		fill_color(void *init, void *w, int i);
 void		go_black(t_map_r *map, t_map a);
+t_map		*makemap();
+int			check_size_h(char	**splited, t_map *map);
+int			check_point(char *str);
+int			key_press(int key, void *p);
 #endif

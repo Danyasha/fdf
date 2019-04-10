@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-t_point	get_delta(t_point start, t_point end)
+t_point		get_delta(t_point start, t_point end)
 {
 	t_point	delta;
 

@@ -90,10 +90,7 @@ void	z_os(t_map_r *map, double angle, t_map a)
 		{
 			r[i][j].x = g[i][j].x * cos(temp) - g[i][j].y * sin(temp);
 			r[i][j].y = -g[i][j].x * sin(temp) + g[i][j].y * cos(temp);
-			//r[i][j].y = g[i][j].y * cos(temp) + g[i][j].z * sin(temp);
-			//r[i][j].z = -g[i][j].y * sin(temp) + g[i][j].z * cos(temp);
 			r[i][j].x = g[i][j].x * cos(temp) + g[i][j].z * sin(temp);
-			// r[i][j].z = -g[i][j].x * sin(temp) + g[i][j].z * cos(temp);
 			j++;
 		}
 		i++;
