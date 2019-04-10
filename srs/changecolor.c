@@ -63,7 +63,7 @@ void	fill_color(void *init, void *w, int i)
 		l = 0;
 }
 
-void		go_black(t_map_r *map, t_map a)
+int		go_black(t_map_r *map, t_map a)
 {
 	t_point_r	**r;
 	int			i;
@@ -86,6 +86,7 @@ void		go_black(t_map_r *map, t_map a)
 		}
 		i++;
 	}
+	return (1);
 }
 
 void		change_color(t_map_r *map, t_map a)
