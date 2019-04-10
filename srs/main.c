@@ -18,11 +18,6 @@ static	int		exiter(char *s)
 	return (0);
 }
 
-// static	void	makevoid(**void)
-// {
-
-// }
-
 static	void	make_t_move(t_move kek)
 {
 	kek.x = WINDOW_HEIGHT / 2;
@@ -52,20 +47,17 @@ int		main(int argn, char **argv)
 
 	fd = open(argv[1], O_RDONLY);
 	if (argn != 2)
-		return(exiter("usage: ./fdf filename\n"));
+		return (exiter("usage: ./fdf filename\n"));
 	if (read(fd, NULL, 0) < 0)
-		return(exiter("invalid file\n"));
+		return (exiter("invalid file\n"));
 	if(!(map = validate_main(fd)))
-		return(exiter("bad map\n"));
-	else
-		ft_putstr("norm map\n");
+		return (exiter("bad map\n"));
 	close (fd);
 	map2 = make_map_r(map, ISO_ANGLE);
 	z = make_fuck_off_norme(z);
 	displayer(z.t, map2, z.kek);
-	a[0] = &(z.t);
-	a[1] = &(z.kek);
-	a[2] = map2;
+	if ((a[0] = &(z.t)) && (a[1] = &(z.kek)))
+		a[2] = map2;
 	a[3] = map;
 	mlx_hook(t.w, 2, 18, key_press, a);
 	mlx_loop(t.i);
